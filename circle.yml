@@ -1,0 +1,12 @@
+machine:
+  services:
+    - docker
+
+general:
+  artifacts:
+    - "pkg"
+
+test:
+  override:
+    - mkdir pkg
+    - docker run `pwd`:/var/omnibus/pkg datadog/docker-dd-agent-build-rpm-x64
